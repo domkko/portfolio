@@ -1,145 +1,149 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominik Stibora - Visual Creator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to right, #e0eafc, #cfdef3);
-            color: #333;
-        }
-        header {
-            background: #fff;
-            text-align: center;
-            padding: 4rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 3.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-        header p {
-            font-size: 1.5rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-        section {
-            padding: 3rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .gallery img, .gallery video {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .gallery img:hover, .gallery video:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-        .logo {
-            text-align: center;
-            margin: 4rem 0;
-        }
-        .logo img {
-            width: 180px;
-        }
-        .contact {
-            background: linear-gradient(to right, #2c3e50, #34495e);
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-        }
-        .contact a {
-            color: #1abc9c;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-        .about p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out forwards;
-        }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .stripe {
-            height: 10px;
-            background: linear-gradient(to right, #1abc9c, #16a085);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dominik Stibora - Visual Creator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      color: #333;
+    }
+    header {
+      background: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    header p {
+      font-size: 1.5rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery img, .gallery video {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery img:hover, .gallery video:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .logo {
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .logo img {
+      width: 180px;
+    }
+    .contact {
+      background: linear-gradient(to right, #2c3e50, #34495e);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    .contact a {
+      color: #1abc9c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .stripe {
+      height: 10px;
+      background: linear-gradient(to right, #1abc9c, #16a085);
+    }
+  </style>
 </head>
 <body>
-    <div class="stripe"></div>
-    <header class="fade-in">
-        <h1>Dominik Stibora</h1>
-        <p>Visual Creator</p>
-    </header>
+  <div class="stripe"></div>
+  <header class="fade-in">
+    <h1>Dominik Stibora</h1>
+    <p>Visual Creator</p>
+  </header>
 
-    <section class="about fade-in">
-        <h2>O mně</h2>
-        <p>Jsem zvídavý a ambiciózní tvůrce, který se specializuje na video, grafiku a fotografii. Pracuji převážně s nástroji Adobe After Effects, Photoshop, Premiere Pro a Illustrator. Absolvoval jsem odbornou stáž v Portugalsku, kde jsem navrhl logo a vytvořil marketingová videa pro propagaci Discord komunity.</p>
-    </section>
+  <section class="about fade-in">
+    <h2>O mně</h2>
+    <p>Jsem zvídavý a ambiciózní tvůrce, který se specializuje na video, grafiku a fotografii. Pracuji převážně s nástroji Adobe After Effects, Photoshop, Premiere Pro a Illustrator. Absolvoval jsem odbornou stáž v Portugalsku, kde jsem navrhl logo a vytvořil marketingová videa pro propagaci Discord komunity.</p>
+  </section>
 
-    <section class="fade-in">
-        <h2>Videoprojekty</h2>
-        <div class="gallery">
-            <video controls src="video1.mp4"></video>
-            <video controls src="video2.mp4"></video>
-        </div>
-    </section>
+  <section class="fade-in">
+    <h2>Videoprojekty</h2>
+    <div class="gallery">
+      <video controls src="video1.mp4" style="height: 400px;"></video>
+      <video controls src="video2.mp4" style="height: 400px;"></video>
+    </div>
+  </section>
 
-    <section class="logo fade-in">
-        <h2>Logo</h2>
-        <img src="logo.png" alt="Logo">
-    </section>
+  <section class="logo fade-in">
+    <h2>Logo</h2>
+    <img src="logo.png" alt="Logo">
+  </section>
 
-    <section class="fade-in">
-        <h2>Fotografie</h2>
-        <div class="gallery">
-            <img src="photo1.jpg" alt="City photo 1">
-            <img src="photo2.jpg" alt="City photo 2">
-            <img src="photo3.jpg" alt="City photo 3">
-            <img src="photo4.jpg" alt="City photo 4">
-            <img src="photo5.jpg" alt="City photo 5">
-            <img src="photo6.jpg" alt="City photo 6">
-        </div>
-    </section>
+  <section class="fade-in">
+    <h2>Fotografie</h2>
+    <div class="gallery">
+      <a href="photo1.jpg" data-lightbox="photos"><img src="photo1.jpg" alt="City photo 1"></a>
+      <a href="photo2.jpg" data-lightbox="photos"><img src="photo2.jpg" alt="City photo 2"></a>
+      <a href="photo3.jpg" data-lightbox="photos"><img src="photo3.jpg" alt="City photo 3"></a>
+      <a href="photo4.jpg" data-lightbox="photos"><img src="photo4.jpg" alt="City photo 4"></a>
+      <a href="photo5.jpg" data-lightbox="photos"><img src="photo5.jpg" alt="City photo 5"></a>
+      <a href="photo6.jpg" data-lightbox="photos"><img src="photo6.jpg" alt="City photo 6"></a>
+    </div>
+  </section>
 
-    <section class="contact fade-in">
-        <h2>Kontakt</h2>
-        <p>Email: <a href="mailto:stiboradominik@seznam.cz">stiboradominik@seznam.cz</a></p>
-    </section>
-    <div class="stripe"></div>
+  <section class="contact fade-in">
+    <h2>Kontakt</h2>
+    <p>Email: <a href="mailto:stiboradominik@seznam.cz">stiboradominik@seznam.cz</a></p>
+  </section>
+  <div class="stripe"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
