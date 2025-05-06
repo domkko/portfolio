@@ -11,7 +11,8 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      background: linear-gradient(180deg, #f1f4f9, #dff1ff);
+      background-attachment: fixed;
       color: #333;
     }
     header {
@@ -34,6 +35,8 @@
       padding: 3rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     h2 {
       font-size: 2.5rem;
@@ -41,23 +44,25 @@
       border-bottom: 2px solid #ccc;
       padding-bottom: 0.5rem;
       margin-bottom: 2rem;
+      text-align: center;
     }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.5rem;
     }
     .gallery img, .gallery video {
-      width: 100%;
-      height: 300px;
+      width: 406px;
+      height: 720px;
       object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery img:hover, .gallery video:hover {
       transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
     .logo {
       text-align: center;
@@ -83,6 +88,7 @@
     .about p {
       font-size: 1.2rem;
       line-height: 1.8;
+      text-align: center;
     }
     .fade-in {
       opacity: 0;
@@ -116,8 +122,8 @@
   <section class="fade-in">
     <h2>Videoprojekty</h2>
     <div class="gallery">
-      <video controls src="video1.mp4" style="height: 400px;"></video>
-      <video controls src="video2.mp4" style="height: 400px;"></video>
+      <video controls src="video1.mp4"></video>
+      <video controls src="video2.mp4"></video>
     </div>
   </section>
 
