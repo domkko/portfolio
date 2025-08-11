@@ -1,216 +1,185 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dominik Stibora - Visual Creator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet"/>
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1abc9c;
-      --primary-dark: #16a085;
-      --text-dark: #2c3e50;
-      --bg-light: #f1f4f9;
-      --bg-gradient: linear-gradient(180deg, #f1f4f9, #dff1ff);
+      --primary: #ff5a5f;
+      --secondary: #00c897;
+      --bg-dark: #111;
+      --text-light: #f5f5f5;
     }
-
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: var(--bg-gradient);
-      background-attachment: fixed;
+      background: #eaeaea;
       color: #333;
-      line-height: 1.6;
     }
 
-    /* Header */
-    header {
-      background: #fff;
-      text-align: center;
-      padding: 4rem 2rem 3rem;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-      animation: fadeDown 0.8s ease-out forwards;
+    /* HERO SECTION */
+    .hero {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
     }
-    header h1 {
-      margin: 0;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-family: 'Playfair Display', serif;
-      color: var(--text-dark);
+    .hero-text h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
     }
-    header p {
-      font-size: 1.4rem;
-      color: #666;
-      margin-top: 0.5rem;
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      max-width: 90%;
     }
-
-    /* Sections */
-    section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
+    .hero-text a {
+      color: var(--text-light);
+      text-decoration: none;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.2rem;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    .hero-text a:hover {
+      color: var(--primary);
+    }
+    .hero-image {
       position: relative;
     }
-    h2 {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      color: var(--text-dark);
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.4rem;
-      margin-bottom: 2rem;
-      text-align: center;
+    .hero-image img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
     }
-    .about p {
-      font-size: 1.15rem;
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-      color: #444;
+    /* Grid overlay like inspiration */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(transparent 97%, rgba(255,255,255,0.05) 3%), 
+                        linear-gradient(90deg, transparent 97%, rgba(255,255,255,0.05) 3%);
+      background-size: 60px 60px;
+      z-index: 0;
     }
+    /* Skill stickers */
+    .sticker {
+      position: absolute;
+      background: #fff;
+      color: #000;
+      padding: 0.6rem 1rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transform: rotate(-6deg);
+    }
+    .sticker.green { background: #00c897; }
+    .sticker.red { background: #ff5a5f; color: #fff; }
+    .sticker.yellow { background: #ffd93d; }
+    .sticker.blue { background: #4ea8de; color: #fff; }
 
-    /* Gallery */
+    .sticker:nth-child(1) { top: 20%; left: -10%; }
+    .sticker:nth-child(2) { top: 60%; left: -5%; }
+    .sticker:nth-child(3) { bottom: 20%; right: -5%; }
+    .sticker:nth-child(4) { top: 30%; right: -10%; }
+
+    /* SECTION GENERAL */
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
     .gallery img, .gallery video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-    .gallery img:hover, .gallery video:hover {
-      transform: scale(1.04);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
-
-    /* Logo section */
-    .logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 4rem auto;
-      max-width: 800px;
-      text-align: center;
-    }
-    .logo img {
-      width: 260px;
       border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    .logo p {
-      margin-top: 1.2rem;
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    /* Contact */
     .contact {
-      background: linear-gradient(to right, var(--text-dark), #34495e);
-      color: #fff;
+      background: var(--bg-dark);
+      color: var(--text-light);
       text-align: center;
-      padding: 2.5rem 2rem;
+      padding: 2rem;
     }
     .contact a {
       color: var(--primary);
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    .contact a:hover {
-      color: var(--primary-dark);
-    }
-
-    /* Accent stripe */
-    .stripe {
-      height: 10px;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
-    }
-
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(25px);
-      animation: fadeInUp 0.9s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      header {
-        padding: 3rem 1.5rem 2.5rem;
-      }
-      .about p {
-        font-size: 1rem;
-      }
+      font-weight: bold;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <div class="stripe"></div>
 
-  <header>
-    <h1>Dominik Stibora</h1>
-    <p>Visual Creator</p>
-  </header>
-
-  <section class="about fade-in">
-    <h2>O mně</h2>
-    <p>Jsem mladý tvůrce, který miluje práci s videem, grafikou a fotografií. Baví mě hlavně motion grafika a vizuální vyjádření myšlenek skrz pohyb a kompozici. Rád experimentuji – někdy zkouším i věci, u kterých tuším, že nemusí dopadnout dobře, ale právě díky těmhle pokusům často najdu něco jedinečného. Vždy si dávám záležet na detailech a snažím se, aby v mé práci nebyly žádné chyby. Momentálně se pořád hledám, jak jako člověk, tak jako tvůrce, ale vím, že bych chtěl jednou pracovat na projektech, které budou mít skutečný dopad. Inspirací jsem si hlavně já sám – skrz vlastní vývoj a růst.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>DOMINIK STIBORA</h1>
+      <p>Visual Creator se zaměřením na video, motion grafiku a fotografii. Tvořím vizuály, které přitahují pozornost a mají skutečný dopad.</p>
+      <a href="#contact">GET IN TOUCH →</a>
+    </div>
+    <div class="hero-image">
+      <div class="grid-bg"></div>
+      <img src="your-photo.jpg" alt="Dominik Stibora">
+      <div class="sticker green">Motion Design</div>
+      <div class="sticker red">Brand Identity</div>
+      <div class="sticker yellow">Video Editing</div>
+      <div class="sticker blue">Photography</div>
+    </div>
   </section>
 
-  <section class="fade-in">
+  <!-- VIDEOS -->
+  <section>
     <h2>Videoprojekty</h2>
     <div class="gallery">
       <video controls src="video1.mp4"></video>
       <video controls src="video2.mp4"></video>
     </div>
-    <p style="text-align: center; margin-top: 1.5rem; font-size: 1.05rem; color: #555;">
-      Obě videa vznikla jako marketingový materiál pro nově vznikající komunitu na Discordu. Práce mě opravdu bavila a cítil jsem, že tenhle druh tvorby je mi hodně blízký.
-    </p>
   </section>
 
-  <section class="logo fade-in">
+  <!-- LOGO -->
+  <section>
     <h2>Logo</h2>
-    <img src="logo.png" alt="Logo">
-    <p>Toto logo jsem vytvořil během tří týdnů na odborné stáži v Portugalsku, kde jsem pracoval v grafické firmě. Získal jsem i doporučení od firmy, což si velmi cením.</p>
-  </section>
-
-  <section class="fade-in">
-    <h2>Fotografie</h2>
-    <div class="gallery">
-      <a href="photo1.jpg" data-lightbox="photos"><img src="photo1.jpg" alt="City photo 1"></a>
-      <a href="photo2.jpg" data-lightbox="photos"><img src="photo2.jpg" alt="City photo 2"></a>
-      <a href="photo3.jpg" data-lightbox="photos"><img src="photo3.jpg" alt="City photo 3"></a>
-      <a href="photo4.jpg" data-lightbox="photos"><img src="photo4.jpg" alt="City photo 4"></a>
-      <a href="photo5.jpg" data-lightbox="photos"><img src="photo5.jpg" alt="City photo 5"></a>
-      <a href="photo6.jpg" data-lightbox="photos"><img src="photo6.jpg" alt="City photo 6"></a>
+    <div style="text-align:center;">
+      <img src="logo.png" alt="Logo" style="max-width:250px;">
+      <p>Toto logo jsem vytvořil během stáže v Portugalsku v grafické firmě.</p>
     </div>
   </section>
 
-  <section class="contact fade-in">
+  <!-- PHOTOS -->
+  <section>
+    <h2>Fotografie</h2>
+    <div class="gallery">
+      <img src="photo1.jpg" alt="">
+      <img src="photo2.jpg" alt="">
+      <img src="photo3.jpg" alt="">
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
     <h2>Kontakt</h2>
     <p>Email: <a href="mailto:stiboradominik@seznam.cz">stiboradominik@seznam.cz</a></p>
   </section>
 
-  <div class="stripe"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
