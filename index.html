@@ -7,103 +7,84 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #ff5a5f;
-      --secondary: #00c897;
-      --bg-dark: #111;
+      --primary: #ff7b00; /* Orange */
+      --bg-dark: #0a0a0a; /* Deep black */
       --text-light: #f5f5f5;
     }
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #eaeaea;
-      color: #333;
-    }
-
-    /* HERO SECTION */
-    .hero {
       background: var(--bg-dark);
       color: var(--text-light);
-      padding: 4rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 2rem;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
     }
-    .hero-text h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
-      line-height: 1.1;
-    }
-    .hero-text p {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      max-width: 90%;
-    }
-    .hero-text a {
-      color: var(--text-light);
-      text-decoration: none;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.2rem;
-      font-weight: bold;
-      margin-top: 1.5rem;
-      display: inline-block;
-      transition: color 0.3s ease;
-    }
-    .hero-text a:hover {
-      color: var(--primary);
-    }
-    .hero-image {
-      position: relative;
-    }
-    .hero-image img {
-      width: 100%;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    /* Grid overlay like inspiration */
-    .grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(transparent 97%, rgba(255,255,255,0.05) 3%), 
-                        linear-gradient(90deg, transparent 97%, rgba(255,255,255,0.05) 3%);
-      background-size: 60px 60px;
+
+    /* Geometric background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255,123,0,0.05) 2px, transparent 2px),
+        radial-gradient(circle at 90% 80%, rgba(255,123,0,0.05) 3px, transparent 3px),
+        linear-gradient(45deg, rgba(255,123,0,0.03) 1px, transparent 1px),
+        linear-gradient(-45deg, rgba(255,123,0,0.03) 1px, transparent 1px);
+      background-size: 100px 100px, 150px 150px, 60px 60px, 60px 60px;
       z-index: 0;
     }
-    /* Skill stickers */
-    .sticker {
-      position: absolute;
-      background: #fff;
-      color: #000;
-      padding: 0.6rem 1rem;
-      font-weight: bold;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transform: rotate(-6deg);
-    }
-    .sticker.green { background: #00c897; }
-    .sticker.red { background: #ff5a5f; color: #fff; }
-    .sticker.yellow { background: #ffd93d; }
-    .sticker.blue { background: #4ea8de; color: #fff; }
 
-    .sticker:nth-child(1) { top: 20%; left: -10%; }
-    .sticker:nth-child(2) { top: 60%; left: -5%; }
-    .sticker:nth-child(3) { bottom: 20%; right: -5%; }
-    .sticker:nth-child(4) { top: 30%; right: -10%; }
-
-    /* SECTION GENERAL */
     section {
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       max-width: 1100px;
       margin: auto;
+      position: relative;
+      z-index: 1;
     }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #ccc;
+    }
+    .hero a {
+      display: inline-block;
+      margin-top: 2rem;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .hero a:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
+    }
+
+    /* Section Titles */
     h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
       text-align: center;
+      color: var(--primary);
     }
+
+    /* Gallery */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -113,13 +94,14 @@
       width: 100%;
       border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(255,123,0,0.2);
     }
+
+    /* Contact */
     .contact {
-      background: var(--bg-dark);
-      color: var(--text-light);
       text-align: center;
-      padding: 2rem;
+      padding: 3rem 2rem;
+      background: #0e0e0e;
     }
     .contact a {
       color: var(--primary);
@@ -132,19 +114,9 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-text">
-      <h1>DOMINIK STIBORA</h1>
-      <p>Visual Creator se zaměřením na video, motion grafiku a fotografii. Tvořím vizuály, které přitahují pozornost a mají skutečný dopad.</p>
-      <a href="#contact">GET IN TOUCH →</a>
-    </div>
-    <div class="hero-image">
-      <div class="grid-bg"></div>
-      <img src="your-photo.jpg" alt="Dominik Stibora">
-      <div class="sticker green">Motion Design</div>
-      <div class="sticker red">Brand Identity</div>
-      <div class="sticker yellow">Video Editing</div>
-      <div class="sticker blue">Photography</div>
-    </div>
+    <h1>DOMINIK STIBORA</h1>
+    <p>Visual Creator se zaměřením na video, motion grafiku a fotografii.</p>
+    <a href="#contact">GET IN TOUCH →</a>
   </section>
 
   <!-- VIDEOS -->
