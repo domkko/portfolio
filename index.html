@@ -102,11 +102,27 @@
       text-align: center;
       padding: 3rem 2rem;
       background: #0e0e0e;
+      border-radius: 16px; /* zaoblení rohů */
+      max-width: 800px;
+      margin: 4rem auto;   /* centrování a mezera */
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4); /* jemný stín */
     }
+
     .contact a {
       color: var(--primary);
       font-weight: bold;
       text-decoration: none;
+      border: 2px solid var(--primary);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact a:hover {
+      background: var(--primary);
+      color: var(--bg-dark);
     }
   </style>
 </head>
@@ -141,16 +157,21 @@
   <section>
     <h2>Fotografie</h2>
     <div class="gallery">
-      <img src="photo1.jpg" alt="">
-      <img src="photo2.jpg" alt="">
-      <img src="photo3.jpg" alt="">
+      <img src="photo1.jpg" alt="Photo 1">
+      <img src="photo2.jpg" alt="Photo 2">
+      <img src="photo3.jpg" alt="Photo 3">
+      <img src="photo6.jpg" alt="Photo 6">
+      <img src="photo7.jpg" alt="Photo 7">
+      <img src="photo8.jpg" alt="Photo 8">
+      <img src="photo9.jpg" alt="Photo 9">
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Kontakt</h2>
-    <p>Email: <a href="mailto:stiboradominik@seznam.cz">stiboradominik@seznam.cz</a></p>
+    <p>Napiš mi na email:</p>
+    <a href="mailto:stiboradominik@seznam.cz">📩 stiboradominik@seznam.cz</a>
   </section>
 
 </body>
