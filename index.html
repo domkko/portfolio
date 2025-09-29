@@ -84,30 +84,30 @@
       color: var(--primary);
     }
 
-    /* Gallery */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0; /* žádné mezery */
-}
-
-.gallery img, .gallery video {
-  flex: 1 1 33%;   /* 3 vedle sebe, při menší šířce se zalamují */
-  max-width: 33%;
-  height: auto;
-  border-radius: 0; /* žádné rohy, ať to sedí k sobě */
-  box-shadow: none; /* bez stínů, aby se to nesekalo */
-}
+    /* Masonry Gallery */
+    .gallery {
+      column-count: 3; /* number of columns */
+      column-gap: 1.5rem; /* spacing between columns */
+    }
+    .gallery img, 
+    .gallery video {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(255,123,0,0.2);
+      display: block;
+    }
 
     /* Contact */
     .contact {
       text-align: center;
       padding: 3rem 2rem;
       background: #0e0e0e;
-      border-radius: 16px; /* zaoblení rohů */
+      border-radius: 16px;
       max-width: 800px;
-      margin: 4rem auto;   /* centrování a mezera */
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4); /* jemný stín */
+      margin: 4rem auto;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
     }
 
     .contact a {
